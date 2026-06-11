@@ -22,16 +22,13 @@ const createUser = async (name, email, password) => {
         )
         RETURNING *
     `;
-
     const result = await pool.query(query, [
         name,
         email,
         password
     ]);
-
     return result.rows[0]
 };
-
 module.exports = {
     findUserByEmail,
     createUser
